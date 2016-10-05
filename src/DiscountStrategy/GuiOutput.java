@@ -9,5 +9,6 @@ package DiscountStrategy;
  *
  * @author Mike
  */
-public class PercentDiscount implements DiscountStrategy {
+public class GuiOutput {
+    
 }

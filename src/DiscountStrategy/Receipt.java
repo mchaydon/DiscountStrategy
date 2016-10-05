@@ -10,13 +10,16 @@ package DiscountStrategy;
  * @author Mike
  */
 public class Receipt {
-    ReceiptOutputStrategy receiptOutput;
-    PersistenceStrategy database;
+    private Customer customer; 
+    private DatabaseStrategy db;
+
     
-    public Receipt(){
-        ConsoleOuput console = new ConsoleOuput();
-        receiptOutput = console;
-        
-        receiptOutput.outputReceipt();
+    public Receipt(String customerNumber, DatabaseStrategy db) {
+        customer = findCustomerById(customerNumber);
+        this.db = db;
+    }
+
+    public final Customer findCustomerById(String customerNumber){ 
+        return db.findCustomerById(customerNumber);
     }
 }

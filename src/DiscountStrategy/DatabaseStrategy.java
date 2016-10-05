@@ -9,6 +9,7 @@ package DiscountStrategy;
  *
  * @author Mike
  */
-public class PersistenceStrategy {
+public interface DatabaseStrategy {
+    public abstract Customer findCustomerById(String customerNumber);
     
 }

@@ -10,18 +10,20 @@ package DiscountStrategy;
  * @author Mike
  */
 public class Register {
-    Receipt receipt;
+    private Receipt receipt;
     
-    public void startNewTransaction(){
-        receipt = new Receipt();
+    public final void startNewTransaction(String customerNumber, DatabaseStrategy db){
+        receipt = new Receipt(customerNumber, db);
     }
     
-    public void addItem(){
+    public final void addProductToSale(String id, int quantity){
         
     }
     
-    public void endCurrentTransaction(){
+    public final void endCurrentTransaction(){
         
     }
+    
+
     
 }

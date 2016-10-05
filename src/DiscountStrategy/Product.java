@@ -10,5 +10,7 @@ package DiscountStrategy;
  * @author Mike
  */
 public class Product {
-    
+    private String productId;
+    private String name;
+    private double cost;
 }

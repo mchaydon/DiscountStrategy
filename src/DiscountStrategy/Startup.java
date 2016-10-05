@@ -15,8 +15,11 @@ public class Startup {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        DatabaseStrategy db = new FakeDatabase(); 
         Register register = new Register();
-        register.startNewTransaction();
+        register.startNewTransaction("C200", db);
+        register.addProductToSale("101", 2);
+        register.endCurrentTransaction();
     }
     
 }
