@@ -20,16 +20,6 @@ public class Startup {
         
         register.startNewTransaction("C100", db);
         register.addProductToTransaction("101", 2);
-        register.addProductToTransaction("71", 2);
-        register.addProductToTransaction("J22", 2);
-        register.addProductToTransaction("J22", 2);
-        register.addProductToTransaction("J22", 2);
-        register.addProductToTransaction("J22", 2);
-        register.addProductToTransaction("J22", 2);
-        register.addProductToTransaction("J22", 2);
-        register.addProductToTransaction("J22", 2);
-        register.addProductToTransaction("J22", 2);
-        register.addProductToTransaction("J22", 2);
         register.endCurrentTransaction(new ConsoleOuput());
     }
     

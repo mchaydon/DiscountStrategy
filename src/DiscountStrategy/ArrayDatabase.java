@@ -17,9 +17,9 @@ public class ArrayDatabase implements DatabaseStrategy{
     };
     
     private Product[] products = {
-        new Product("101", "GameBoy", 79.99),
-        new Product("71", "Men's Shirt", 9.99),
-        new Product("J22", "Jeans", 54.99)
+        new Product("101", "GameBoy", 79.99, new FlatDiscount(27.95)),
+        new Product("71", "Men's Shirt", 9.99, new FlatDiscount(5.00)),
+        new Product("J22", "Jeans", 54.99, new FlatDiscount(5.00))
     };
     
     @Override

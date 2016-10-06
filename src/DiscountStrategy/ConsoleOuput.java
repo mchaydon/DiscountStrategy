@@ -21,7 +21,7 @@ public class ConsoleOuput implements ReceiptOutputStrategy{
     @Override
     public void outputLineItems(LineItem[] lineitems) {
         for (LineItem l : lineitems){
-            System.out.printf(l.getProduct().getName() + "\t" + l.getProduct().getCost() + "\n");
+            System.out.printf(l.getProduct().getName() + "\t" + l.getProduct().getCost() + "\t" + l.getProduct().getDiscount() + "\n");
         }
     }
 

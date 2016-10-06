@@ -13,13 +13,15 @@ public class Product {
     private String productId;
     private String name;
     private double cost;
+    private DiscountStrategy discount;
 
     
     //Constructor requires product ID, name, and cost
-    public Product(String productId, String name, double cost) {
+    public Product(String productId, String name, double cost, DiscountStrategy discount) {
         this.productId = productId;
         this.name = name;
         this.cost = cost;
+        this.discount = discount;
     }
 
     
@@ -47,4 +49,13 @@ public class Product {
     public final void setCost(double cost) {
         this.cost = cost;
     }
+
+    public final double getDiscount() {
+        return discount.getDiscountAmount();
+    }
+
+    public final void setDiscount(DiscountStrategy discount) {
+        this.discount = discount;
+    }
+    
 }

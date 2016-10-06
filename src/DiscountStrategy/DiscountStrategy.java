@@ -10,4 +10,7 @@ package DiscountStrategy;
  * @author Mike
  */
 public interface DiscountStrategy {
+    public abstract void calculateDiscount();
+    
+    public abstract double getDiscountAmount();
 }
