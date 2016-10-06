@@ -16,12 +16,12 @@ public class Register {
         receipt = new Receipt(customerNumber, db);
     }
     
-    public final void addProductToSale(String id, int quantity){
-        
+    public final void addProductToTransaction(String id, int quantity){
+        receipt.AddProductToSale(id, quantity);
     }
     
-    public final void endCurrentTransaction(){
-        
+    public final void endCurrentTransaction(ReceiptOutputStrategy output){
+        receipt.endSale(output);
     }
     
 

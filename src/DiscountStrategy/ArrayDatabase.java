@@ -9,11 +9,17 @@ package DiscountStrategy;
  *
  * @author Mike
  */
-public class FakeDatabase implements DatabaseStrategy{
+public class ArrayDatabase implements DatabaseStrategy{
     private Customer[] customers = {
         new Customer("Smith", "John", "C100"),
         new Customer("Doe", "Bob", "C101"),
         new Customer("Jones", "Sally", "C102")
+    };
+    
+    private Product[] products = {
+        new Product("101", "GameBoy", 79.99),
+        new Product("71", "Men's Shirt", 9.99),
+        new Product("J22", "Jeans", 54.99)
     };
     
     @Override
@@ -27,5 +33,18 @@ public class FakeDatabase implements DatabaseStrategy{
             }
         }
         return customer;
+    }
+
+    @Override
+    public final Product findProductById(String productId) {
+        Product product = null;
+        
+        for (Product p : products){
+            if (productId.equals(p.getProductId())){
+                product = p;
+                break;
+            }
+        }
+        return product;
     }
 }

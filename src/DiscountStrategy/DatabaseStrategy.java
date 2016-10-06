@@ -12,4 +12,5 @@ package DiscountStrategy;
 public interface DatabaseStrategy {
     public abstract Customer findCustomerById(String customerNumber);
     
+    public abstract Product findProductById(String productId);
 }

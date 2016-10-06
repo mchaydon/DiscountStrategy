@@ -20,27 +20,27 @@ public class Customer {
         this.customerNumber = customerNumber;
     }
     
-    public String getLastName() {
+    public final String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    public final void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    public String getFirstName() {
+    public final String getFirstName() {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public final void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    public String getCustomerNumber() {
+    public final String getCustomerNumber() {
         return customerNumber;
     }
 
-    public void setCustomerNumber(String customerNumber) {
+    public final void setCustomerNumber(String customerNumber) {
         this.customerNumber = customerNumber;
     }
     
