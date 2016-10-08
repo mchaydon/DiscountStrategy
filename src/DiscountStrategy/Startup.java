@@ -19,7 +19,9 @@ public class Startup {
         Register register = new Register();
         
         register.startNewTransaction("C100", db);
-        register.addProductToTransaction("101", 2);
+        register.addProductToTransaction("101", 1);
+        register.addProductToTransaction("J22", 2);
+        register.addProductToTransaction("R32", 4);
         register.endCurrentTransaction(new ConsoleOuput());
     }
     

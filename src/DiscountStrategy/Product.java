@@ -12,6 +12,7 @@ package DiscountStrategy;
 public class Product {
     private String productId;
     private String name;
+    private int quantity;
     private double cost;
     private DiscountStrategy discount;
 
@@ -24,7 +25,6 @@ public class Product {
         this.discount = discount;
     }
 
-    
     //Getters and Setters
     public final String getProductId() {
         return productId;
@@ -51,11 +51,20 @@ public class Product {
     }
 
     public final double getDiscount() {
-        return discount.getDiscountAmount();
+        return discount.getDiscountAmount(quantity, cost);
     }
 
     public final void setDiscount(DiscountStrategy discount) {
         this.discount = discount;
     }
+
+    public final int getQuantity() {
+        return quantity;
+    }
+
+    public final void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+    
     
 }

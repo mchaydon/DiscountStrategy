@@ -14,7 +14,6 @@ public class Receipt {
     private Product product;
     private DatabaseStrategy db;
     private LineItem[] lineItems = new LineItem[0];
-    private ReceiptOutputStrategy output;
     
     
     //Accept customer number and database when creating receipt
@@ -26,7 +25,8 @@ public class Receipt {
     //adding a product to the sale requires a product ID and quantity, will require a discount type later
     public final void AddProductToSale(String productId, int quantity){
         product = db.findProductById(productId);
-        LineItem item = new LineItem(product, quantity);     
+        product.setQuantity(quantity);
+        LineItem item = new LineItem(product);     
         AddProductToArray(lineItems, item);
     }  
     

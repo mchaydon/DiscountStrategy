@@ -10,20 +10,14 @@ package DiscountStrategy;
  * @author Mike
  */
 public class FlatDiscount implements DiscountStrategy{
-    private double discountAmount;
+    private double discountDollarAmount;
 
-    public FlatDiscount(double discountAmount) {
-        this.discountAmount = discountAmount;
-    }
-    
-    @Override
-    public void calculateDiscount() {
-        
+    public FlatDiscount(double discountDollarAmount) {
+        this.discountDollarAmount = discountDollarAmount;
     }
 
     @Override
-    public double getDiscountAmount() {
-        return discountAmount;
+    public final double getDiscountAmount(int quantity, double unitCost) {
+        return quantity * discountDollarAmount;
     }
-
 }

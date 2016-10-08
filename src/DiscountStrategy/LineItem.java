@@ -12,10 +12,12 @@ package DiscountStrategy;
 public class LineItem {
     private Product product;
     private int quantity; 
+    private double discountAmount;
 
-    public LineItem(Product product, int quantity) {
+    public LineItem(Product product) {
         this.product = product;
-        this.quantity = quantity;
+        this.quantity = product.getQuantity();
+        this.discountAmount = product.getDiscount();
     }
 
     public final Product getProduct() {

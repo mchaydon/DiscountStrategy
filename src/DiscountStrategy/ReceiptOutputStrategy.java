@@ -12,4 +12,5 @@ package DiscountStrategy;
 public interface ReceiptOutputStrategy {
     public abstract void outputHeading(Customer customer);
     public abstract void outputLineItems(LineItem[] lineitems);
+    
 }

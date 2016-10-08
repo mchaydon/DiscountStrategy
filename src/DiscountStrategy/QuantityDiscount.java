@@ -9,6 +9,22 @@ package DiscountStrategy;
  *
  * @author Mike
  */
-public class QuantityDiscount implements DiscountStrategy {
- 
+public class QuantityDiscount implements DiscountStrategy { 
+    private double discountRate;
+    private int minimumQuantity;
+
+    public QuantityDiscount(double discountRate, int minimumQuantity) {
+        this.discountRate = discountRate;
+        this.minimumQuantity = minimumQuantity;
+    }
+    
+
+    @Override
+    public final double getDiscountAmount(int quantity, double unitCost) {
+        if (quantity >= minimumQuantity){
+            return unitCost * quantity * discountRate;
+        } else {
+            return 0.00;
+        }
+    }
 }
