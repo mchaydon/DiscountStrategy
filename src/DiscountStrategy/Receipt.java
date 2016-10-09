@@ -40,8 +40,8 @@ public class Receipt {
     
     //this method will pass all the info to the output method
     public final void endSale(ReceiptOutputStrategy output){
-        output.outputHeading(customer);
-        output.outputLineItems(lineItems);
+        output.generateReceiptBody(customer, lineItems);
+        output.outputReceipt();
     }
 
 }

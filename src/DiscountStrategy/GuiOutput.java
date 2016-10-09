@@ -5,10 +5,39 @@
  */
 package DiscountStrategy;
 
+import java.text.DecimalFormat;
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
+
 /**
  *
  * @author Mike
  */
-public class GuiOutput {
-    
+public class GuiOutput implements ReceiptOutputStrategy {
+    private double totalSaleAmount = 0;
+    private double totalDiscountAmount = 0;
+    private String receiptText = ""; 
+    DecimalFormat formatter = new DecimalFormat("#0.00");
+
+    @Override
+    public void generateReceiptBody(Customer customer, LineItem[] lineitems) {
+        receiptText += "\t            Kohl's\n  ---------------------------------------------------------------------------  \n\n  Customer: " + customer.getFirstName() + " " + customer.getLastName() + "\n\n";
+        for (LineItem l : lineitems){
+            receiptText += "  " + l.getProduct().getName() + "\t\tQty: " + l.getProduct().getQuantity() + "     " + l.getProduct().getProductId() + "\t" + formatter.format((l.getProduct().getCost() * l.getProduct().getQuantity()) - l.getProduct().getDiscount()) + "\n" +
+                    "    Item cost: " + formatter.format(l.getProduct().getCost()) + "\t     You save: " + formatter.format(l.getProduct().getDiscount()) + "\n\n";
+            
+//            System.out.printf("%s\t%.2f\t%.2f\n", l.getProduct().getName(), l.getProduct().getCost(), l.getProduct().getDiscount());
+            totalSaleAmount += l.getProduct().getCost() * l.getProduct().getQuantity();
+            totalDiscountAmount += l.getProduct().getDiscount();            
+        }
+        
+        receiptText += "\t\t            Subtotal: " + formatter.format(totalSaleAmount) + "\n\t\t           Discount: " + formatter.format(totalDiscountAmount) + 
+                "-\n\t\t                  Total: " + formatter.format(totalSaleAmount - totalDiscountAmount) + "\n\n  ---------------------------------------------------------------------------  \n" +
+                "                     Thank you for shopping at Kohl's!\n" ;
+    }
+
+    @Override
+    public void outputReceipt() {
+        JOptionPane.showMessageDialog(null, new JTextArea(receiptText));
+    }
 }
