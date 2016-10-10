@@ -14,8 +14,8 @@ import javax.swing.JTextArea;
  * @author Mike
  */
 public class GuiOutput implements ReceiptOutputStrategy {
-    private double totalSaleAmount = 0;
-    private double totalDiscountAmount = 0;
+    private double totalSaleAmount;
+    private double totalDiscountAmount;
     private String receiptText = ""; 
     DecimalFormat formatter = new DecimalFormat("#0.00");
 

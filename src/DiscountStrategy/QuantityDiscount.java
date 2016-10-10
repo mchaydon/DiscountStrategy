@@ -12,6 +12,7 @@ package DiscountStrategy;
 public class QuantityDiscount implements DiscountStrategy { 
     private double discountRate;
     private int minimumQuantity;
+    private final double ZERO = 0.00;
 
     public QuantityDiscount(double discountRate, int minimumQuantity) {
         this.discountRate = discountRate;
@@ -24,7 +25,7 @@ public class QuantityDiscount implements DiscountStrategy {
         if (quantity >= minimumQuantity){
             return unitCost * quantity * discountRate;
         } else {
-            return 0.00;
+            return ZERO;
         }
     }
 }

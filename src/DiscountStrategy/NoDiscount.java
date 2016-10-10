@@ -10,10 +10,11 @@ package DiscountStrategy;
  * @author Mike
  */
 public class NoDiscount implements DiscountStrategy{
+    private final double ZERO = 0.00;
 
     @Override
     public final double getDiscountAmount(int quantity, double unitCost) {
-        return 0.00;
+        return ZERO;
     }
 
 }
