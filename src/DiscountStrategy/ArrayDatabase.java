@@ -9,7 +9,7 @@ package DiscountStrategy;
  *
  * @author Mike
  */
-public class ArrayDatabase implements DatabaseStrategy{
+public class ArrayDatabase implements DatabaseStrategy {
     private Customer[] customers = {
         new Customer("Smith", "John", "C100"),
         new Customer("Doe", "Bob", "C101"),
