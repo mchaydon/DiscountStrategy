@@ -33,7 +33,7 @@ public class ConsoleOuput implements ReceiptOutputStrategy{
     }
 
     @Override
-    public void outputReceipt() {
+    public final void outputReceipt() {
         System.out.println(receiptText);
     }
 

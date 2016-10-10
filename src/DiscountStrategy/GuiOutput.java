@@ -20,7 +20,7 @@ public class GuiOutput implements ReceiptOutputStrategy {
     DecimalFormat formatter = new DecimalFormat("#0.00");
 
     @Override
-    public void generateReceiptBody(Customer customer, LineItem[] lineitems) {
+    public final void generateReceiptBody(Customer customer, LineItem[] lineitems) {
         receiptText += "\t            Kohl's\n  ---------------------------------------------------------------------------  \n\n  Customer: " + customer.getFirstName() + " " + customer.getLastName() + "\n\n";
         for (LineItem l : lineitems){
             receiptText += "  " + l.getProduct().getName() + "\t\tQty: " + l.getProduct().getQuantity() + "     " + l.getProduct().getProductId() + "\t" + formatter.format((l.getProduct().getCost() * l.getProduct().getQuantity()) - l.getProduct().getDiscount()) + "\n" +
@@ -37,7 +37,7 @@ public class GuiOutput implements ReceiptOutputStrategy {
     }
 
     @Override
-    public void outputReceipt() {
+    public final void outputReceipt() {
         JOptionPane.showMessageDialog(null, new JTextArea(receiptText));
     }
 }

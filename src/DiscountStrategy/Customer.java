@@ -15,9 +15,9 @@ public class Customer {
     private String customerNumber;
 
     public Customer(String lastName, String firstName, String customerNumber) {
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.customerNumber = customerNumber;
+        setLastName(lastName);
+        setFirstName(firstName);
+        setCustomerNumber(customerNumber);
     }
     
     public final String getLastName() {
@@ -25,6 +25,7 @@ public class Customer {
     }
 
     public final void setLastName(String lastName) {
+        //Needs validation
         this.lastName = lastName;
     }
 
@@ -33,6 +34,7 @@ public class Customer {
     }
 
     public final void setFirstName(String firstName) {
+        //Needs validation
         this.firstName = firstName;
     }
 
@@ -41,6 +43,7 @@ public class Customer {
     }
 
     public final void setCustomerNumber(String customerNumber) {
+        //Needs validation
         this.customerNumber = customerNumber;
     }
     

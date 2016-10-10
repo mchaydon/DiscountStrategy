@@ -16,12 +16,31 @@ public class LineItem {
 
     public LineItem(Product product) {
         this.product = product;
-        this.quantity = product.getQuantity();
-        this.discountAmount = product.getDiscount();
+        setQuantity(product.getQuantity());
+        setDiscountAmount(product.getDiscount());
     }
 
     public final Product getProduct() {
         return product;
     }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        //Needs validation
+        this.quantity = quantity;
+    }
+
+    public double getDiscountAmount() {
+        return discountAmount;
+    }
+
+    public void setDiscountAmount(double discountAmount) {
+        //Needs validation
+        this.discountAmount = discountAmount;
+    }
+    
     
 }
