@@ -13,7 +13,7 @@ public class PercentDiscount implements DiscountStrategy {
     private double discountRate;
 
     public PercentDiscount(double discountRate) {
-        this.discountRate = discountRate;
+        setDiscountRate(discountRate);
     }
     
     @Override
@@ -21,4 +21,14 @@ public class PercentDiscount implements DiscountStrategy {
         return unitCost * quantity * discountRate;
     }
 
+    public final double getDiscountRate() {
+        return discountRate;
+    }
+
+    public final void setDiscountRate(double discountRate) {
+        //Needs Validation
+        this.discountRate = discountRate;
+    }
+
+    
 }

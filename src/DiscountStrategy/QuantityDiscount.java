@@ -12,11 +12,11 @@ package DiscountStrategy;
 public class QuantityDiscount implements DiscountStrategy { 
     private double discountRate;
     private int minimumQuantity;
-    private final double ZERO = 0.00;
+    private static final double ZERO = 0.00;
 
     public QuantityDiscount(double discountRate, int minimumQuantity) {
-        this.discountRate = discountRate;
-        this.minimumQuantity = minimumQuantity;
+        setDiscountRate(discountRate);
+        setMinimumQuantity(minimumQuantity);
     }
     
 
@@ -28,4 +28,24 @@ public class QuantityDiscount implements DiscountStrategy {
             return ZERO;
         }
     }
+
+    public final double getDiscountRate() {
+        return discountRate;
+    }
+
+    public final void setDiscountRate(double discountRate) {
+        //Needs Validation
+        this.discountRate = discountRate;
+    }
+
+    public final int getMinimumQuantity() {
+        return minimumQuantity;
+    }
+
+    public final void setMinimumQuantity(int minimumQuantity) {
+        //Needs Validation
+        this.minimumQuantity = minimumQuantity;
+    }
+    
+    
 }

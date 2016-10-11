@@ -20,4 +20,5 @@ public class FlatDiscount implements DiscountStrategy{
     public final double getDiscountAmount(int quantity, double unitCost) {
         return quantity * discountDollarAmount;
     }
+    
 }
