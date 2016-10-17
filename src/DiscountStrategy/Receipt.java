@@ -17,17 +17,26 @@ public class Receipt {
     
     
     //Accept customer number and database when creating receipt
-    public Receipt(String customerNumber, DatabaseStrategy db) {
+    public Receipt(String customerNumber, DatabaseStrategy db) throws IllegalArgumentException{
         this.db = db;
         customer = db.findCustomerById(customerNumber);
+        if (customer == null) {
+            throw new IllegalArgumentException("Customer not found in database, please try again");
+        }
     }
 
     //adding a product to the sale requires a product ID and quantity, will require a discount type later
-    public final void AddProductToSale(String productId, int quantity){
+    public final void AddProductToSale(String productId, int quantity) throws IllegalArgumentException{
         product = db.findProductById(productId);
+        if (product == null){
+            throw new IllegalArgumentException("Product not found in database");
+        } else if (quantity == 0){
+            throw new IllegalArgumentException("0 Quantity, not adding to transaction");
+        } else {            
         product.setQuantity(quantity);
         LineItem item = new LineItem(product);     
         AddProductToArray(lineItems, item);
+        }
     }  
     
     public final void AddProductToArray(LineItem[] array, LineItem item){

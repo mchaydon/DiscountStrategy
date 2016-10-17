@@ -28,7 +28,7 @@ public class ArrayDatabase implements DatabaseStrategy {
         Customer customer = null;
         
         for (Customer c : customers){
-            if (customerNumber.equals(c.getCustomerNumber())) {
+            if (customerNumber.equalsIgnoreCase(c.getCustomerNumber())) {
                 customer = c;
                 break;
             }
@@ -41,7 +41,7 @@ public class ArrayDatabase implements DatabaseStrategy {
         Product product = null;
         
         for (Product p : products){
-            if (productId.equals(p.getProductId())){
+            if (productId.equalsIgnoreCase(p.getProductId())){
                 product = p;
                 break;
             }
