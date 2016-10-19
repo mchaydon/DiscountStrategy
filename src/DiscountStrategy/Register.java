@@ -12,13 +12,14 @@ import javax.swing.JOptionPane;
  * @author Mike
  */
 public class Register {
-    private Receipt receipt;
+    private Receipt receipt = new Receipt();
     
     public final void startNewTransaction(String customerNumber, DatabaseStrategy db){
         try {
         receipt = new Receipt(customerNumber, db);
-        } catch (IllegalArgumentException iae){
-            customerNumber = JOptionPane.showInputDialog(iae.getMessage());
+        } catch (CustomerNotFoundException cnfe){
+            receipt.throwError(cnfe.getMessage());
+            customerNumber = JOptionPane.showInputDialog(null, "Customer ID:");
             startNewTransaction(customerNumber, db);
         }
     }
@@ -26,8 +27,12 @@ public class Register {
     public final void addProductToTransaction(String id, int quantity){
         try {
         receipt.AddProductToSale(id, quantity);
-        } catch (IllegalArgumentException iae){
-            JOptionPane.showMessageDialog(null, iae.getMessage());
+        } catch (ZeroQuantityException zqe){
+            receipt.throwError(zqe.getMessage());
+        } catch (ProductNotFoundEcception pnfe){
+            receipt.throwError(pnfe.getMessage());
+            id = JOptionPane.showInputDialog(null, "Product ID:");
+            addProductToTransaction(id, quantity);
         }
     }
     

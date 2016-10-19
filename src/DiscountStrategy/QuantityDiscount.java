@@ -22,6 +22,9 @@ public class QuantityDiscount implements DiscountStrategy {
 
     @Override
     public final double getDiscountAmount(int quantity, double unitCost) {
+        if (unitCost <= 0 || quantity <= -0){
+            throw new IllegalArgumentException();
+        }
         if (quantity >= minimumQuantity){
             return unitCost * quantity * discountRate;
         } else {

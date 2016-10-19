@@ -26,7 +26,6 @@ public class PercentDiscount implements DiscountStrategy {
     }
 
     public final void setDiscountRate(double discountRate) {
-        //Needs Validation
         this.discountRate = discountRate;
     }
 

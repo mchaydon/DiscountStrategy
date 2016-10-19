@@ -15,23 +15,26 @@ public class Receipt {
     private DatabaseStrategy db;
     private LineItem[] lineItems = new LineItem[0];
     
+    public Receipt(){
+        
+    }
     
     //Accept customer number and database when creating receipt
-    public Receipt(String customerNumber, DatabaseStrategy db) throws IllegalArgumentException{
+    public Receipt(String customerNumber, DatabaseStrategy db) throws CustomerNotFoundException{
         this.db = db;
         customer = db.findCustomerById(customerNumber);
         if (customer == null) {
-            throw new IllegalArgumentException("Customer not found in database, please try again");
+            throw new CustomerNotFoundException();
         }
     }
 
     //adding a product to the sale requires a product ID and quantity, will require a discount type later
-    public final void AddProductToSale(String productId, int quantity) throws IllegalArgumentException{
+    public final void AddProductToSale(String productId, int quantity) throws ProductNotFoundEcception, ZeroQuantityException{
         product = db.findProductById(productId);
         if (product == null){
-            throw new IllegalArgumentException("Product not found in database");
+            throw new ProductNotFoundEcception();
         } else if (quantity == 0){
-            throw new IllegalArgumentException("0 Quantity, not adding to transaction");
+            throw new ZeroQuantityException();
         } else {            
         product.setQuantity(quantity);
         LineItem item = new LineItem(product);     
@@ -53,4 +56,8 @@ public class Receipt {
         output.outputReceipt();
     }
 
+    public final void throwError(String exceptionMessage){
+        GuiOutput errorOutput = new GuiOutput();
+        errorOutput.outputError(exceptionMessage);
+    }
 }

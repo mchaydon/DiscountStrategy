@@ -31,7 +31,6 @@ public class Product {
     }
 
     public final void setProductId(String productId) {
-        //Needs Validation
         this.productId = productId;
     }
 
@@ -40,7 +39,6 @@ public class Product {
     }
 
     public final void setName(String name) {
-        //Needs Validation
         this.name = name;
     }
 
@@ -49,7 +47,6 @@ public class Product {
     }
 
     public final void setCost(double cost) {
-        //Needs Validation
         this.cost = cost;
     }
 
@@ -58,7 +55,6 @@ public class Product {
     }
 
     public final void setDiscount(DiscountStrategy discount) {
-        //Needs Validation
         this.discount = discount;
     }
 
@@ -67,7 +63,6 @@ public class Product {
     }
 
     public final void setQuantity(int quantity) {
-        //Needs Validation
         this.quantity = quantity;
     }
     

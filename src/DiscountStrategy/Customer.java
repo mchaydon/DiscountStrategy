@@ -25,7 +25,6 @@ public class Customer {
     }
 
     public final void setLastName(String lastName) {
-        //Needs validation
         this.lastName = lastName;
     }
 
@@ -34,7 +33,6 @@ public class Customer {
     }
 
     public final void setFirstName(String firstName) {
-        //Needs validation
         this.firstName = firstName;
     }
 
@@ -43,7 +41,6 @@ public class Customer {
     }
 
     public final void setCustomerNumber(String customerNumber) {
-        //Needs validation
         this.customerNumber = customerNumber;
     }
     

@@ -29,7 +29,6 @@ public class LineItem {
     }
 
     public void setQuantity(int quantity) {
-        //Needs validation
         this.quantity = quantity;
     }
 
@@ -38,7 +37,6 @@ public class LineItem {
     }
 
     public void setDiscountAmount(double discountAmount) {
-        //Needs validation
         this.discountAmount = discountAmount;
     }
     

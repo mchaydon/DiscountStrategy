@@ -40,4 +40,8 @@ public class GuiOutput implements ReceiptOutputStrategy {
     public final void outputReceipt() {
         JOptionPane.showMessageDialog(null, new JTextArea(receiptText));
     }
+
+    public void outputError(String exceptionMessage) {
+        JOptionPane.showMessageDialog(null, exceptionMessage);
+    }
 }
