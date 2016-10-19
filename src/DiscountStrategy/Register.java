@@ -18,7 +18,7 @@ public class Register {
         try {
         receipt = new Receipt(customerNumber, db);
         } catch (CustomerNotFoundException cnfe){
-            receipt.throwError(cnfe.getMessage());
+            receipt.ThrowError(cnfe.getMessage());
             customerNumber = JOptionPane.showInputDialog(null, "Customer ID:");
             startNewTransaction(customerNumber, db);
         }
@@ -28,16 +28,16 @@ public class Register {
         try {
         receipt.AddProductToSale(id, quantity);
         } catch (ZeroQuantityException zqe){
-            receipt.throwError(zqe.getMessage());
+            receipt.ThrowError(zqe.getMessage());
         } catch (ProductNotFoundEcception pnfe){
-            receipt.throwError(pnfe.getMessage());
+            receipt.ThrowError(pnfe.getMessage());
             id = JOptionPane.showInputDialog(null, "Product ID:");
             addProductToTransaction(id, quantity);
         }
     }
     
     public final void endCurrentTransaction(ReceiptOutputStrategy output){
-        receipt.endSale(output);
+        receipt.EndSale(output);
     }
     
 

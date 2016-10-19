@@ -51,12 +51,12 @@ public class Receipt {
     }
     
     //this method will pass all the info to the output method
-    public final void endSale(ReceiptOutputStrategy output){
+    public final void EndSale(ReceiptOutputStrategy output){
         output.generateReceiptBody(customer, lineItems);
         output.outputReceipt();
     }
 
-    public final void throwError(String exceptionMessage){
+    public final void ThrowError(String exceptionMessage){
         GuiOutput errorOutput = new GuiOutput();
         errorOutput.outputError(exceptionMessage);
     }
